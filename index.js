@@ -74,7 +74,9 @@ class Meal {
   }
 
   static byPrice() {
-
+    return store.meals.sort(function (mealOne, mealTwo) {
+      return mealTwo.price - mealOne.price;
+    });
   }
 }
 
