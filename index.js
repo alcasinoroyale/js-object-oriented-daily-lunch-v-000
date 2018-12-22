@@ -52,3 +52,25 @@ class Customer {
   totalSpent() {
   }
 }
+
+class Meal {
+  constructor(title, price) {
+    this.id = ++mealId;
+    this.title = title;
+    this.price = price;
+    store.meals.push(this);
+  }
+
+  deliveries() {
+    return store.deliveries.filter(delivery => {
+      return delivery.mealId === this.id;
+    });
+  }
+
+  customers() {
+    return this.deliveries().map(delivery => {
+      return delivery.customer();
+    });
+  }
+  
+}
